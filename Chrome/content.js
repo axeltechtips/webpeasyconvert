@@ -1,34 +1,42 @@
-function convertWebpToPng(image) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    const img = new Image();
+// Listen for the conversion request message
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.action === 'convertImage' && message.url.endsWith('.webp')) {
+    convertImageToPng(message.url);
+  }
+});
 
-    img.crossOrigin = 'anonymous'; // To handle CORS issues
-    img.onload = () => {
+// Function to convert WEBP image to PNG
+function convertImageToPng(webpUrl) {
+  fetch(webpUrl)
+    .then(response => response.blob())
+    .then(webpBlob => {
+      const img = new Image();
+      const objectUrl = URL.createObjectURL(webpBlob);
+
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
         canvas.width = img.width;
         canvas.height = img.height;
         ctx.drawImage(img, 0, 0);
 
-        canvas.toBlob(
-            (blob) => {
-                const url = URL.createObjectURL(blob);
-                chrome.runtime.sendMessage({
-                    url,
-                    name: `${Date.now()}-${Math.random().toString(36).slice(2)}.png`,
-                });
-            },
-            'image/png',
-            1.0
-        );
-    };
+        canvas.toBlob(blob => {
+          const pngUrl = URL.createObjectURL(blob);
+          const filenameWithoutExtension = webpUrl.split('/').pop().replace(/\.webp$/, "");
+          // Send the PNG data back to the background script to trigger download
+          chrome.runtime.sendMessage({
+            pngUrl,
+            name: `${filenameWithoutExtension}.png`
+          });
+        }, "image/png");
+      };
 
-    img.src = image.src;
+      img.onerror = () => {
+        console.error("Failed to load the WEBP image.");
+      };
+
+      img.src = objectUrl;
+    })
+    .catch(err => console.error("Error fetching WEBP image:", err));
 }
-
-// Automatically detect and convert .webp images on the page
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('img[src$=".webp"], img[src*=".webp"]');
-    images.forEach((image) => {
-        convertWebpToPng(image);
-    });
-});
