@@ -47,3 +47,7 @@
 ## 📄 License  
 
 This project is licensed under the [MIT License](LICENSE).  
+
+
+## pst!
+hey devs! comments are on the files, check out and see what our extension does! :-)
