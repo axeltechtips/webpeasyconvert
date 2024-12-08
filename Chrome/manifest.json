@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "WEBP Easy Convert",
+    "version": "1.0",
+    "description": "Right-click on a WEBP image to convert it to PNG.",
+    "permissions": [ "contextMenus", "downloads", "scripting" ],
+    "host_permissions": [ "<all_urls>" ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
