@@ -20,14 +20,14 @@
 
 ### For Chrome:  
 
-1. Download the latest release from the [Releases page](https://github.com/yourusername/webp-easy-convert/releases).  
+1. Download the latest release from the [Releases page](https://github.com/axeltechtips/webpeasyconvert/releases).  
 2. Open Chrome and navigate to `chrome://extensions`.  
 3. Enable **Developer Mode** (toggle in the top-right corner).  
 4. Click **Load unpacked** and select the extracted `webp-easy-convert` folder.  
 
 ### For Firefox:  
-[Download us here! (Official Firefox store) ](https://addons.mozilla.org/en-US/firefox/addon/webp-easy-convert/)
-1. Download the latest release from the [Releases page](https://github.com/yourusername/webp-easy-convert/releases).  
+[Download us here! (Official Firefox store)](https://addons.mozilla.org/en-US/firefox/addon/webp-easy-convert/)
+1. Download the latest release from the [Releases page](https://github.com/axeltechtips/webpeasyconvert/releases).  
 2. Open Firefox and navigate to `about:debugging`.  
 3. Click **This Firefox** and then **Load Temporary Add-on**.  
 4. Select the extracted `webp-easy-convert` folder and click **Open**.
