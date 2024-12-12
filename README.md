@@ -32,7 +32,7 @@
 3. Click **This Firefox** and then **Load Temporary Add-on**.  
 4. Select the extracted `webp-easy-convert` folder and click **Open**.
 
-> **Note**: For permanent installation, Firefox users can install the extension via a packaged `.xpi` file from the releases page.
+> **Note**: For permanent installation, Firefox users can install the extension via a packaged `.xpi` file from the releases page, or download us from the Firefox addon store!
 
 ---
 
