@@ -26,7 +26,7 @@
 4. Click **Load unpacked** and select the extracted `webp-easy-convert` folder.  
 
 ### For Firefox:  
-
+[Download us here! (Official Firefox store) ](https://addons.mozilla.org/en-US/firefox/addon/webp-easy-convert/)
 1. Download the latest release from the [Releases page](https://github.com/yourusername/webp-easy-convert/releases).  
 2. Open Firefox and navigate to `about:debugging`.  
 3. Click **This Firefox** and then **Load Temporary Add-on**.  
